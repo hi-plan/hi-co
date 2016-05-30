@@ -1,0 +1,26 @@
+{
+  "name": "hi-co",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node ./test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hi-plan/hi-co.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hi-plan/hi-co/issues"
+  },
+  "homepage": "https://github.com/hi-plan/hi-co#readme",
+  "dependencies": {
+    "co": "^4.6.0",
+    "node-fetch": "^1.5.3"
+  }
+}
