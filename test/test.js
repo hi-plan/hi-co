@@ -31,3 +31,9 @@ hico(function *() {
   const count = ret.ReadCount
   console.log(count)
 })
+
+hico(function() {
+  return 123
+}).then(function(r) {
+  console.log(r)
+})
