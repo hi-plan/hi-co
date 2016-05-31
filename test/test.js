@@ -1,39 +1,31 @@
 const Promise = require('hi-promise')
-const fetch = require('node-fetch')
-const co = require('co')
+const hico = require('../')
 
-const hico = require('../lib')
-
-const uri = 'https://www.dobest.me/api/read?id=1'
-
-// Promise based
-/*
-fetch(uri).then(resp => resp.json())
-  .then((resp) => {
-    console.log(resp)
+// Mock fetch API fot testing
+const fetch = function(uri) {
+  return new Promise(function(resolve, reject) {
+    resolve('{"success": true}')
   })
-*/
+}
 
-// Co and Promise based
-/*
-co(function *() {
-  const resp = yield fetch(uri)
-  const ret = yield resp.json()
-  const count = ret.ReadCount
-  console.log(count)
-})
-*/
 
-// Hi-co based
-hico(function *() {
-  const resp = yield fetch(uri)
-  const ret = yield resp.json()
-  const count = ret.ReadCount
-  console.log(count)
-})
-
-hico(function() {
-  return 123
-}).then(function(r) {
-  console.log(r)
+describe('Promise fetch test', function() {
+  it('should get correct result', (done) => {
+    hico(function *() {
+      const resp = yield fetch()
+      console.log(resp)
+      const ret = yield fetch()
+      console.log(ret)
+      done()
+    })
+  })
+  
+  it('should return a new promise', (done) => {
+    hico(function() {
+      return 123
+    }).then(function(r) {
+      if (r) done()
+    })
+    
+  })
 })
