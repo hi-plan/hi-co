@@ -1,3 +1,4 @@
+const Promise = require('hi-promise')
 const fetch = require('node-fetch')
 const co = require('co')
 

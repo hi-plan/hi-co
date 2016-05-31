@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/hi-plan/hi-co#readme",
   "dependencies": {
+    "hi-promise": "1.0.0",
     "co": "^4.6.0",
     "node-fetch": "^1.5.3"
   }
